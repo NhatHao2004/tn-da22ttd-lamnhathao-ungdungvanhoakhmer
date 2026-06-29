@@ -421,7 +421,7 @@ Sau khi build thành công, EAS cung cấp link tải `.apk` trực tiếp về 
 
 <div align="center">
 
-**⭐ Nếu dự án hữu ích, hãy cho một Star trên GitHub! ⭐**
+**⭐ Nếu dự án hữu ích, hãy cho một Star trên GitHub nhé ⭐**
 
 **Lâm Nhật Hào**
 
