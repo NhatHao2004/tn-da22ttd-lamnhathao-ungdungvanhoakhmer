@@ -419,7 +419,6 @@ Sau khi build thành công, EAS cung cấp link tải `.apk` trực tiếp về 
 <td><strong>Mã QR tải app</strong></td>
 <td><img src="./images/z7989859485631_e5ac2031027b15403108316775c3437f.jpg" width="180"/></td>
 </tr>
-<tr>
 <td>Link: https://expo.dev/accounts/lamhao/projects/khmergo/builds/fdf67b71-b3f4-4ba0-b929-9d0d356de2ca</td>
 </table>
 
