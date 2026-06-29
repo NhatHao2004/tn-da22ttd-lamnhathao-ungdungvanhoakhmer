@@ -421,7 +421,6 @@ Sau khi build thành công, EAS cung cấp link tải `.apk` trực tiếp về 
 </tr>
 <tr>
 <td>Link: https://expo.dev/accounts/lamhao/projects/khmergo/builds/fdf67b71-b3f4-4ba0-b929-9d0d356de2ca</td>
-</tr>
 </table>
 
 ---
