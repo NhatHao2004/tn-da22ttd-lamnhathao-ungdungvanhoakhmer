@@ -1,0 +1,113 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ======================
+    // HÀM KIỂM TRA (HELPERS)
+    // ======================
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function userExists() {
+      return isSignedIn() && exists(/databases/$(database)/documents/users/$(request.auth.uid));
+    }
+
+    function isAdmin() {
+      return userExists() && (
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'Quản trị viên' ||
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data['quyền'] == 'Quản trị viên'
+      );
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isNotModifying(fields) {
+      return !request.resource.data.diff(resource.data).affectedKeys().hasAny(fields);
+    }
+
+    // ======================
+    // TEMP OTP (QUÊN MẬT KHẨU)
+    // ======================
+    match /temp_otps/{email} {
+      // Cho phép tạo, đọc, cập nhật và xóa OTP để khôi phục mật khẩu
+      allow read, write: if true; 
+    }
+
+    // ======================
+    // USERS
+    // ======================
+    match /users/{userId} {
+      allow read: if true;
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      allow update: if isAdmin() || (isOwner(userId) && isNotModifying(['role', 'quyền', 'points', 'điểm', 'masteredQuizzes', 'quizBestScores']));
+      allow delete: if isAdmin();
+    }
+
+    match /users/{userId}/{allPaths=**} {
+      allow read, write: if isOwner(userId) || isAdmin();
+    }
+
+    // ======================
+    // FEEDBACK
+    // ======================
+    match /feedback/{feedbackId} {
+      allow create: if isSignedIn();
+      allow read, delete: if isAdmin() || (isSignedIn() && (resource.data.userId == request.auth.uid || resource.data['e-mail'] == request.auth.token.email));
+      allow update: if isAdmin();
+    }
+
+    // ======================
+    // POSTS
+    // ======================
+    match /posts/{postId} {
+      allow read: if true;
+      allow create: if isSignedIn() && (!('approved' in request.resource.data) || request.resource.data.approved == false);
+      allow delete: if isAdmin() || (isSignedIn() && resource.data.userId == request.auth.uid);
+      allow update: if isAdmin() || 
+                    (isSignedIn() && resource.data.userId == request.auth.uid && (!('approved' in request.resource.data) || request.resource.data.approved == false)) || 
+                    (isSignedIn() && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likes', 'likedBy', 'comments']));
+
+      match /comments/{commentId} {
+        allow read: if true;
+        allow create: if isSignedIn();
+        allow update, delete: if isAdmin() || (isSignedIn() && resource.data.userId == request.auth.uid);
+      }
+    }
+
+    // ======================
+    // NOTIFICATIONS
+    // ======================
+    match /notifications/{notificationId} {
+      allow create: if isSignedIn();
+      allow read, update, delete: if isAdmin() || (isSignedIn() && request.auth.uid == resource.data.toUserId);
+    }
+
+    // ======================
+    // LOGS, SYSTEM & OTHERS
+    // ======================
+    match /logs/{logId} {
+      allow create: if isSignedIn();
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /system_trash/{documentId} {
+      allow create: if isSignedIn();
+      allow read, update, delete: if isAdmin();
+    }
+
+    match /system_trash/{documentId}/{allPaths=**} {
+      allow create: if isSignedIn();
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Catch-all cho các danh mục nội dung (Chùa, Ẩm thực, Văn hóa...)
+    match /{path=**} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+  }
+}

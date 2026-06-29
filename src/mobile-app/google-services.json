@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "563133852511",
+    "project_id": "khmergo-ba0b0",
+    "storage_bucket": "khmergo-ba0b0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:563133852511:android:97d62fd89b8bb8d03064ea",
+        "android_client_info": {
+          "package_name": "com.haonhatlam.myapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "563133852511-9heb0efqerbd036pamquvnm645cpkvpi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIb-FOoz1-AW3e_VjDwpIdMx3NeSmYp40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "563133852511-9heb0efqerbd036pamquvnm645cpkvpi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
