@@ -291,15 +291,15 @@ tn-da22ttd-lamnhathao-ungdungvanhoakhmer/
 <td align="center"><strong>AI Chatbot</strong></td>
 <td align="center"><strong>AI Camera</strong></td>
 <td align="center"><strong>Hồ sơ cá nhân</strong></td>
-<td align="center"><strong>Quiz</strong></td>
-<td align="center"><strong>Dashboard quản trị viên</strong></td>
+<td align="center"><strong>Thử thách Quiz</strong></td>
+<td align="center"><strong>Dashboard quản trị</strong></td>
 </tr>
 <tr>
 <td><img src="./images/z7987334626797_e0b2af20b4c871faf01e041bda1c7359.jpg" width="180"/></td>
 <td><img src="./images/z7987334655691_00a28de675faa285c4b6a989ae79e607.jpg" width="180"/></td>
 <td><img src="./images/z7945000542440_0b86e10a6f785213a6a0401c36024c54.jpg" width="180"/></td>
-<td><img src="./images/z7944837946459_259c40ee0517946f3d9fa1aa9675419f.jpg" width="180"/></td>
-<td><img src="./images/z7944837946459_259c40ee0517946f3d9fa1aa9675419f.jpg" width="180"/></td>
+<td><img src="./images/z7944981616266_e572428d88fac6cd7099cddd92717e44.jpg" width="180"/></td>
+<td><img src="./images/z7984574125345_d833036f44cc354bf246c09e934f2404.jpg" width="180"/></td>
 </tr>
 </table>
 
