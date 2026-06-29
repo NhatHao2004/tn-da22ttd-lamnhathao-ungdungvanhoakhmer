@@ -415,7 +415,7 @@ Sau khi build thành công, EAS cung cấp link tải `.apk` trực tiếp về 
 <td><strong>📅 Năm học</strong></td>
 <td>2022</td>
 </tr>
-<td><img src="./images/z7984574125345_d833036f44cc354bf246c09e934f2404.jpg" width="180"/></td>
+<td><img src="./images/z7989859485631_e5ac2031027b15403108316775c3437f.jpg" width="180"/></td>
 </table>
 
 ---
