@@ -401,19 +401,19 @@ Sau khi build thành công, EAS cung cấp link tải `.apk` trực tiếp về 
 </tr>
 <tr>
 <td><strong>🎓 Sinh viên thực hiện</strong></td>
-<td><strong>Lâm Nhật Hào</strong> — MSSV: 110122071</td>
+<td><strong>Lâm Nhật Hào</strong> - MSSV: 110122071</td>
 </tr>
 <tr>
 <td><strong>🏫 Trường</strong></td>
-<td>Đại học Trà Vinh — Khoa Kỹ thuật và Công nghệ</td>
+<td>Đại học Trà Vinh - Khoa Kỹ thuật và Công nghệ</td>
 </tr>
 <tr>
 <td><strong>📚 Ngành</strong></td>
-<td>Công nghệ Thông tin — Lớp DA22TTD</td>
+<td>Công nghệ Thông tin - Lớp DA22TTD</td>
 </tr>
 <tr>
 <td><strong>📅 Năm học</strong></td>
-<td>2025 – 2026</td>
+<td>2022</td>
 </tr>
 </table>
 
@@ -423,6 +423,6 @@ Sau khi build thành công, EAS cung cấp link tải `.apk` trực tiếp về 
 
 **⭐ Nếu dự án hữu ích, hãy cho một Star trên GitHub! ⭐**
 
-Made with ❤️ by **Lâm Nhật Hào** — Đại học Trà Vinh
+**Lâm Nhật Hào**
 
 </div>
