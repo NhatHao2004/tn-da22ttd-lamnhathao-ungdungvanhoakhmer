@@ -1,47 +1,211 @@
-# KhmerGo - Ứng dụng Hỗ trợ Du lịch và Tìm hiểu Văn hóa Khmer Nam Bộ
+<div align="center">
 
-<p align="center">
-  <img src="./assets/images/icon.png" width="120" alt="KhmerGo Logo"/>
+# 🏛️ KhmerGo
+
+### Ứng dụng Hỗ trợ Du lịch và Tìm hiểu Văn hóa Khmer Nam Bộ
+
+<p>
+  <img src="./src/mobile-app/assets/images/icon.png" width="140" alt="KhmerGo Logo"/>
 </p>
 
-KhmerGo là một ứng dụng di động đa nền tảng được phát triển bằng **React Native** và **Expo**, phục vụ cho việc hỗ trợ khách du lịch trải nghiệm, khám phá và tìm hiểu về các giá trị văn hóa, kiến trúc, ẩm thực truyền thống của đồng bào người **Khmer Nam Bộ**. Dự án tích hợp các công nghệ thông minh bao gồm Nhận diện hiện vật văn hóa bằng Trí tuệ Nhân tạo (AI Vision) và Trợ lý ảo phục vụ hỏi đáp thông tin văn hóa thời gian thực.
+[![React Native](https://img.shields.io/badge/React_Native-0.79-61DAFB?style=for-the-badge&logo=react&logoColor=white)](https://reactnative.dev/)
+[![Expo](https://img.shields.io/badge/Expo_SDK_54-000020?style=for-the-badge&logo=expo&logoColor=white)](https://expo.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)](https://firebase.google.com/)
+[![Groq AI](https://img.shields.io/badge/Groq_AI-F55036?style=for-the-badge&logo=probot&logoColor=white)](https://groq.com/)
+[![License](https://img.shields.io/badge/License-Academic-green?style=for-the-badge)](./LICENSE)
+
+<br/>
+
+> *"Số hóa di sản — Kết nối văn hóa Khmer Nam Bộ với thế giới hiện đại"*
+
+<br/>
+
+[📱 Demo Video](./videos/KhmerGo.mp4) · [📄 Báo cáo Đồ án](./docs/110122071.pdf) · [🖼️ Poster](./docs/Poster.png) · [📖 Hướng dẫn Sử dụng](./docs/HuongDanSuDung.pdf)
+
+</div>
 
 ---
 
-## 📌 1. Mục tiêu Đề án & Tính năng Chính
+## 📋 Mục lục
 
-Đồ án được thiết kế nhằm đạt được các mục tiêu sau:
-*   **Số hóa và Quảng bá Di sản**: Cung cấp thông tin chi tiết về các địa điểm di tích lịch sử, danh thắng nổi tiếng (các ngôi chùa Khmer cổ kính tại Trà Vinh, Sóc Trăng, An Giang...), ẩm thực truyền thống (bún nước lèo, cốm dẹp, mắm bò hóc...) và các lễ hội đặc sắc (Chôl Chnăm Thmây, Sên ĐônTa, Ok Om Bok).
-*   **Trợ lý ảo KhmerGo AI (Groq Chat LLM)**: Tích hợp mô hình ngôn ngữ lớn để trả lời các câu hỏi về lịch sử, nghệ thuật múa Rô-băm, trang phục truyền thống,... của người Khmer một cách tự động và chính xác theo dữ liệu tuyển chọn.
-*   **Nhận diện Hiện vật Văn hóa bằng AI (Groq Vision LLM)**: Cho phép người dùng chụp ảnh/tải hình ảnh các hiện vật, nhạc cụ cổ truyền của người Khmer (nhạc ngũ âm, xà-rông...) để phân tích và cung cấp thông tin liên quan ngay lập tức.
-*   **Hệ thống hóa Trải nghiệm bằng Gamification**: Tăng tính tương tác thông qua việc tích lũy huy chương (Medal/Badges) tương đương với hành trình khám phá văn hóa của người dùng.
-*   **Tương tác Cộng đồng**: Chức năng để người dùng gửi phản hồi (Feedback/Review), đánh giá các địa danh, món ăn, hỗ trợ quản trị viên quản lý nội dung qua Dashboard Admin tích hợp sẵn.
+- [Giới thiệu](#-giới-thiệu)
+- [Tính năng nổi bật](#-tính-năng-nổi-bật)
+- [Tech Stack](#-tech-stack)
+- [Kiến trúc Hệ thống](#-kiến-trúc-hệ-thống)
+- [Cấu trúc Thư mục](#-cấu-trúc-thư-mục)
+- [Ảnh chụp Giao diện](#-ảnh-chụp-giao-diện)
+- [Cài đặt & Chạy Chương trình](#-cài-đặt--chạy-chương-trình)
+- [Triển khai APK](#-triển-khai-apk-eas-build)
+- [Thông tin Đồ án](#-thông-tin-đồ-án)
 
 ---
 
-## 🏗️ 2. Kiến trúc Hệ thống
+## 🌟 Giới thiệu
 
-Ứng dụng KhmerGo được xây dựng dựa trên mô hình Client-Server hiện đại, tận dụng sức mạnh xử lý biên trên thiết bị di động kết hợp với các dịch vụ đám mây thời gian thực và mô hình học sâu (LLM):
+**KhmerGo** là ứng dụng di động đa nền tảng được phát triển bằng **React Native** & **Expo**, phục vụ khách du lịch trong việc trải nghiệm, khám phá và tìm hiểu các giá trị văn hóa, kiến trúc, ẩm thực truyền thống của đồng bào **Khmer Nam Bộ**.
+
+Dự án tích hợp các công nghệ thông minh tiên tiến:
+- 🤖 **AI Vision** — Nhận diện hiện vật văn hóa Khmer qua camera
+- 💬 **AI Chatbot** — Trợ lý ảo hỏi đáp văn hóa Khmer thời gian thực
+- 🎮 **Gamification** — Hệ thống huy chương, quiz tăng tương tác người dùng
+
+---
+
+## ✨ Tính năng nổi bật
+
+<table>
+<tr>
+<td width="50%">
+
+### 🏯 Khám phá Di sản
+- Danh sách chùa Khmer cổ kính (Trà Vinh, Sóc Trăng, An Giang...)
+- Thông tin lịch sử, kiến trúc chi tiết
+- Bản đồ tích hợp định vị
+
+</td>
+<td width="50%">
+
+### 🍜 Ẩm thực Truyền thống
+- Bộ sưu tập món ăn đặc sắc (bún nước lèo, cốm dẹp, mắm bò hóc...)
+- Công thức & câu chuyện văn hóa
+- Đánh giá & phản hồi cộng đồng
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🤖 AI Camera — Nhận diện Hiện vật
+- Chụp ảnh nhạc cụ cổ truyền (nhạc ngũ âm, xà-rông...)
+- Phân tích bằng **Llama 4 Scout Vision**
+- Kết quả tra cứu tức thì
+
+</td>
+<td width="50%">
+
+### 💬 Trợ lý ảo KhmerGo AI
+- Hỏi đáp lịch sử, nghệ thuật múa Rô-băm, lễ hội...
+- Tích hợp **Llama 3.1** qua Groq Cloud
+- Phản hồi chính xác theo dữ liệu tuyển chọn
+
+</td>
+</tr>
+<tr>
+<td width="50%">
+
+### 🏅 Gamification & Quiz
+- Hệ thống XP, Level, Huy chương (Badges)
+- Quiz văn hóa & ẩm thực Khmer
+- Bảng xếp hạng người dùng
+
+</td>
+<td width="50%">
+
+### 👥 Cộng đồng & Admin
+- Đăng bài, chia sẻ trải nghiệm
+- Phản hồi & đánh giá địa danh
+- Dashboard quản trị viên tích hợp
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🔧 Tech Stack
+
+<table>
+<tr>
+<th align="center">Phân tầng</th>
+<th align="center">Công nghệ</th>
+<th align="center">Vai trò</th>
+</tr>
+<tr>
+<td><strong>📱 Frontend</strong></td>
+<td>
+  <img src="https://img.shields.io/badge/React_Native-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React Native"/>
+  <img src="https://img.shields.io/badge/Expo_SDK_54-000020?style=flat-square&logo=expo&logoColor=white" alt="Expo"/>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript"/>
+</td>
+<td>Ứng dụng di động đa nền tảng (Android & iOS)</td>
+</tr>
+<tr>
+<td><strong>🧭 Navigation</strong></td>
+<td>
+  <img src="https://img.shields.io/badge/Expo_Router-000020?style=flat-square&logo=expo&logoColor=white" alt="Expo Router"/>
+</td>
+<td>File-based routing, Tab & Stack navigation</td>
+</tr>
+<tr>
+<td><strong>🔐 Auth</strong></td>
+<td>
+  <img src="https://img.shields.io/badge/Firebase_Auth-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firebase Auth"/>
+</td>
+<td>Xác thực đăng nhập / đăng ký người dùng</td>
+</tr>
+<tr>
+<td><strong>🗄️ Database</strong></td>
+<td>
+  <img src="https://img.shields.io/badge/Cloud_Firestore-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firestore"/>
+</td>
+<td>Cơ sở dữ liệu NoSQL thời gian thực</td>
+</tr>
+<tr>
+<td><strong>📦 Storage</strong></td>
+<td>
+  <img src="https://img.shields.io/badge/Cloud_Storage-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Cloud Storage"/>
+</td>
+<td>Lưu trữ ảnh đại diện, tài liệu đa phương tiện</td>
+</tr>
+<tr>
+<td><strong>🤖 AI Chat</strong></td>
+<td>
+  <img src="https://img.shields.io/badge/Llama_3.1_8B-F55036?style=flat-square&logo=meta&logoColor=white" alt="Llama 3.1"/>
+  <img src="https://img.shields.io/badge/Groq_Cloud-F55036?style=flat-square&logo=probot&logoColor=white" alt="Groq"/>
+</td>
+<td>Trợ lý hỏi đáp văn hóa Khmer (NLP)</td>
+</tr>
+<tr>
+<td><strong>📷 AI Vision</strong></td>
+<td>
+  <img src="https://img.shields.io/badge/Llama_4_Scout-F55036?style=flat-square&logo=meta&logoColor=white" alt="Llama 4"/>
+  <img src="https://img.shields.io/badge/Groq_Cloud-F55036?style=flat-square&logo=probot&logoColor=white" alt="Groq"/>
+</td>
+<td>Nhận diện hiện vật văn hóa qua hình ảnh</td>
+</tr>
+<tr>
+<td><strong>⚙️ Config</strong></td>
+<td>
+  <img src="https://img.shields.io/badge/Remote_Config-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Remote Config"/>
+  <img src="https://img.shields.io/badge/SecureStore-000020?style=flat-square&logo=expo&logoColor=white" alt="SecureStore"/>
+</td>
+<td>Cấu hình model AI động & bảo mật API Key</td>
+</tr>
+</table>
+
+---
+
+## 🏗️ Kiến trúc Hệ thống
 
 ```mermaid
 graph TD
-    subgraph Client [Môi trường Client - Mobile App]
-        UserApp[KhmerGo App - React Native / Expo]
-        Router[Expo Router - File-based Routing]
-        SecureStorage[Expo SecureStore - Lưu Token / API Key]
+    subgraph Client ["📱 Mobile App Client"]
+        UserApp["KhmerGo App<br/>React Native / Expo"]
+        Router["Expo Router<br/>File-based Routing"]
+        SecureStorage["Expo SecureStore<br/>Mã hóa API Key"]
     end
 
-    subgraph FirebaseServices [Cloud Services - Firebase Suite]
-        Auth[Firebase Authentication - Đăng nhập / Đăng ký]
-        Firestore[Cloud Firestore - Cơ sở dữ liệu thời gian thực]
-        Storage[Cloud Storage - Lưu trữ tệp tin / Hình ảnh đại diện]
-        RemoteConfig[Firebase Remote Config - Cấu hình Model AI dynamic]
-        FCM[Firebase Cloud Messaging - Gửi thông báo đẩy]
+    subgraph Firebase ["☁️ Firebase Cloud Services"]
+        Auth["🔐 Authentication"]
+        Firestore["🗄️ Cloud Firestore"]
+        Storage["📦 Cloud Storage"]
+        RemoteConfig["⚙️ Remote Config"]
     end
 
-    subgraph AIServer [AI Inference Cloud - Groq API]
-        LlamaChat[Llama-3.1-8b-instant - Trợ lý Hỏi thoại]
-        LlamaVision[Llama-4-scout-17b - Phân tích & Nhận diện Hình ảnh]
+    subgraph AI ["🧠 AI Inference — Groq Cloud"]
+        LlamaChat["💬 Llama 3.1-8B<br/>Trợ lý Hỏi đáp"]
+        LlamaVision["📷 Llama 4 Scout<br/>Nhận diện Hình ảnh"]
     end
 
     UserApp --> Router
@@ -49,123 +213,212 @@ graph TD
     UserApp --> Firestore
     UserApp --> Storage
     UserApp --> RemoteConfig
-    UserApp --> FCM
-    UserApp --> AIServer
+    UserApp --> LlamaChat
+    UserApp --> LlamaVision
     SecureStorage -.-> UserApp
 ```
 
-### Chi tiết các tầng công nghệ:
-1.  **Front-end (Mobile App Client)**:
-    *   **React Native & Expo (v54)**: Hỗ trợ xây dựng ứng dụng di động native hiệu năng cao trên cả hai hệ điều hành Android và iOS từ một codebase duy nhất.
-    *   **TypeScript**: Đảm bảo tính chặt chẽ về dữ liệu, giảm thiểu các lỗi runtime trong quá trình phát triển ứng dụng.
-    *   **Expo Router (File-based Routing)**: Hệ thống navigate tối tân giúp tổ chức cấu trúc màn hình rõ ràng, bộ định tuyến linh hoạt.
-    *   **SecureStore**: Mã hóa và lưu trữ Key nhạy bén trên thiết bị.
-2.  **Back-end & Database (Firebase)**:
-    *   **Firebase Authentication**: Quản lý thông tin đăng nhập tối ưu, bảo mật của người dùng và quản trị viên.
-    *   **Cloud Firestore Database**: Lưu trữ dữ liệu về người dùng, danh sách các ngôi chùa, món ăn, lịch sử hội thoại, phản hồi, huy chương đạt được dưới dạng tài liệu (document-oriented).
-    *   **Cloud Storage**: Lưu trữ an toàn các asset hình ảnh người dùng tải lên, ảnh đại diện và tài liệu đa phương tiện.
-    *   **Firebase Remote Config**: Hỗ trợ việc thay đổi linh hoạt model LLM đằng sau trợ lý ảo mà không cần build lại ứng dụng.
-3.  **AI Engine (Groq Cloud)**:
-    *   Tận dụng sức mạnh phần cứng của chip Tensor Streaming Processor (TSP) từ Groq để thực hiện các yêu cầu inference AI Vision và NLP siêu tốc (Ultra-fast response time).
-
 ---
 
-## 🛠️ 3. Phần mềm & Công cụ Yêu cầu (Prerequisites)
+## 📁 Cấu trúc Thư mục
 
-Để cài đặt và chạy thử nghiệm dự án KhmerGo cục bộ, máy tính của bạn cần được trang bị các phần mềm sau:
-
-*   **Node.js**: Phiên bản đề xuất từ `v18.x` hoặc `v20.x` LTS trở lên.
-*   **Trình quản lý gói**: `npm` (mặc định kèm theo Node.js) hoặc `yarn`, `pnpm`.
-*   **Expo Go Application**: Cài đặt ứng dụng **Expo Go** từ Google Play Store (Android) hoặc Apple App Store (iOS) để quét mã QR chạy app trực tiếp trên thiết bị cá nhân.
-*   **Android Studio** / **Xcode**: Phục vụ khởi chạy thiết bị giả lập (Emulator / Simulator) trên máy tính (nếu không dùng thiết bị thật).
-*   **Git**: Để kiểm soát phiên bản mã nguồn của Project.
-
----
-
-## 🚀 4. Hướng dẫn Cài đặt & Chạy Chương trình
-
-Sinh viên thực hiện theo các bước chi tiết sau để triển khai ứng dụng:
-
-### Bước 1: Tải mã nguồn về máy cục bộ
-```bash
-git clone https://github.com/NhatHao2004/khoaluan_totnghiep_khmergo.git
-cd khoaluan_totnghiep_khmergo
+```
+tn-da22ttd-lamnhathao-ungdungvanhoakhmer/
+│
+├── 📂 docs/                          # Tài liệu đồ án
+│   ├── 110122071.doc                 #   Báo cáo Word
+│   ├── 110122071.pdf                 #   Báo cáo PDF
+│   ├── bia.doc                       #   Bìa đồ án
+│   ├── HuongDanSuDung.pdf            #   Hướng dẫn sử dụng
+│   ├── Poster.png                    #   Poster giới thiệu
+│   └── Slide.pptx                    #   Slide thuyết trình
+│
+├── 📂 images/                        # Hình ảnh minh họa giao diện
+│   └── *.jpg                         #   Screenshots ứng dụng
+│
+├── 📂 src/                           # Mã nguồn chính
+│   ├── 📂 database/
+│   │   ├── firestore.rules           #   Quy tắc bảo mật Firestore
+│   │   └── firestore_export.json     #   Dữ liệu mẫu (seed data)
+│   │
+│   └── 📂 mobile-app/               #   Ứng dụng React Native
+│       ├── 📂 app/                   #     Màn hình (Expo Router)
+│       ├── 📂 components/            #     UI Components tái sử dụng
+│       ├── 📂 constants/             #     Hằng số & cấu hình
+│       ├── 📂 contexts/              #     React Context (Auth, Theme...)
+│       ├── 📂 hooks/                 #     Custom Hooks
+│       ├── 📂 services/              #     API & Firebase services
+│       ├── 📂 utils/                 #     Tiện ích & helper functions
+│       ├── 📂 assets/                #     Icon, font, hình ảnh
+│       ├── 📂 scripts/               #     Script hỗ trợ (seed, export...)
+│       ├── app.json                  #     Cấu hình Expo
+│       ├── package.json              #     Dependencies
+│       └── .env.example              #     Mẫu biến môi trường
+│
+├── 📂 videos/                        # Video demo
+│   └── KhmerGo.mp4                   #   Video minh họa ứng dụng
+│
+└── README.md                         # Tài liệu hướng dẫn (file này)
 ```
 
-### Bước 2: Cài đặt các gói phụ thuộc (Dependencies)
+---
+
+## 📸 Ảnh chụp Giao diện
+
+<div align="center">
+
+<!-- Row 1 -->
+<table>
+<tr>
+<td align="center"><strong>🏠 Trang chủ</strong></td>
+<td align="center"><strong>🏯 Danh sách Chùa</strong></td>
+<td align="center"><strong>🍜 Ẩm thực</strong></td>
+<td align="center"><strong>📷 AI Camera</strong></td>
+</tr>
+<tr>
+<td><img src="./images/z7944826578018_43a54ec22c104f4ac9d9ce2504db01c7.jpg" width="180"/></td>
+<td><img src="./images/z7944826599802_fe304f03060d1bf828c9084fcdebc327.jpg" width="180"/></td>
+<td><img src="./images/z7944826606423_cb78e430a2a4dc1a6255a72b754dfecd.jpg" width="180"/></td>
+<td><img src="./images/z7944826626818_6c945077248499f4dd32564eb57bc0cf.jpg" width="180"/></td>
+</tr>
+</table>
+
+<!-- Row 2 -->
+<table>
+<tr>
+<td align="center"><strong>💬 AI Chatbot</strong></td>
+<td align="center"><strong>🏅 Huy chương</strong></td>
+<td align="center"><strong>📝 Quiz</strong></td>
+<td align="center"><strong>👤 Hồ sơ</strong></td>
+</tr>
+<tr>
+<td><img src="./images/z7944826645355_8241942e127db2af7df3aac68bb6ad13.jpg" width="180"/></td>
+<td><img src="./images/z7944837927053_5ca3829daf5c3dce6876d864cc7c4277.jpg" width="180"/></td>
+<td><img src="./images/z7944837930120_47a7824c57ab0df90a7a16519a9ff1d6.jpg" width="180"/></td>
+<td><img src="./images/z7944837946459_259c40ee0517946f3d9fa1aa9675419f.jpg" width="180"/></td>
+</tr>
+</table>
+
+</div>
+
+---
+
+## 🚀 Cài đặt & Chạy Chương trình
+
+### Yêu cầu hệ thống
+
+| Phần mềm | Phiên bản | Ghi chú |
+|-----------|-----------|---------|
+| **Node.js** | `≥ 18.x LTS` | Khuyến nghị `v20.x` |
+| **npm** / yarn | `≥ 9.x` | Đi kèm Node.js |
+| **Expo Go** | Mới nhất | Cài từ App Store / Play Store |
+| **Git** | Mới nhất | Quản lý mã nguồn |
+| **Android Studio** | Tùy chọn | Chạy Emulator |
+
+### Bước 1 → Tải mã nguồn
+
+```bash
+git clone https://github.com/NhatHao2004/tn-da22ttd-lamnhathao-ungdungvanhoakhmer.git
+cd tn-da22ttd-lamnhathao-ungdungvanhoakhmer/src/mobile-app
+```
+
+### Bước 2 → Cài đặt Dependencies
+
 ```bash
 npm install
 ```
 
-### Bước 3: Cấu hình biến môi trường (Environment Variables)
-Tạo file `.env` tại thư mục gốc của dự án (file này đã được đưa vào `.gitignore` để bảo vệ các API key quan trọng của bạn):
+### Bước 3 → Cấu hình biến môi trường
 
 ```bash
-# Tạo file .env từ file mẫu
 cp .env.example .env
 ```
 
-Điền thông tin cấu hình của bạn vào file `.env` theo định dạng sau:
+Mở file `.env` và điền các giá trị tương ứng:
 
 ```env
-# API Key của Groq Cloud dành cho tính năng AI
-EXPO_PUBLIC_GROQ_API_KEY=YOUR_GROQ_API_KEY_HERE
+# 🤖 Groq AI API Key
+EXPO_PUBLIC_GROQ_API_KEY=gsk_xxxxxxxxxxxx
 
-# Cấu hình Firebase Project client
-EXPO_PUBLIC_FIREBASE_API_KEY=YOUR_FIREBASE_API_KEY
-EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=YOUR_FIREBASE_AUTH_DOMAIN
-EXPO_PUBLIC_FIREBASE_PROJECT_ID=YOUR_FIREBASE_PROJECT_ID
-EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=YOUR_FIREBASE_STORAGE_BUCKET
-EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=YOUR_FIREBASE_SENDER_ID
-EXPO_PUBLIC_FIREBASE_APP_ID=YOUR_FIREBASE_APP_ID
-EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=YOUR_FIREBASE_MEASUREMENT_ID
+# 🔥 Firebase Configuration
+EXPO_PUBLIC_FIREBASE_API_KEY=AIzaSy...
+EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN=your-project.firebaseapp.com
+EXPO_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+EXPO_PUBLIC_FIREBASE_STORAGE_BUCKET=your-project.appspot.com
+EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=123456789
+EXPO_PUBLIC_FIREBASE_APP_ID=1:123456789:web:abcdef
+EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
-> [!WARNING]  
-> Tuyệt đối không thêm file `.env` vào Git commits để tránh rò rỉ khoá API công cộng hoặc tài khoản của dự án. Nếu cấu hình build từ xa qua EAS Build, hãy thêm các biến này vào **Expo Secrets** trong trang quản trị Expo.
+> [!CAUTION]
+> **Không commit file `.env` lên Git!** File này chứa API key nhạy cảm. Nếu build qua EAS, hãy cấu hình secrets tại [expo.dev](https://expo.dev).
 
-### Bước 4: Khởi động Server Expo
+### Bước 4 → Khởi chạy ứng dụng
+
 ```bash
 npx expo start
 ```
 
-Tại bảng điều khiển terminal hiển thị sau khi chạy lệnh:
-*   Mở camera điện thoại (hoặc app Expo Go) quét mã **QR Code** hiển thị trên terminal để chạy trên thiết bị thật.
-*   Nhấn `a` để chạy thiết bị giả lập Android.
-*   Nhấn `i` để chạy thiết bị giả lập iOS.
-*   Nhấn `w` để chạy phiên bản Web.
+| Phím tắt | Hành động |
+|----------|-----------|
+| Quét **QR Code** | Chạy trên thiết bị thật (Expo Go) |
+| `a` | Mở Android Emulator |
+| `i` | Mở iOS Simulator |
+| `w` | Mở trình duyệt Web |
 
 ---
 
-## 📦 5. Triển khai Ứng dựng & Cách Tạo file APK (Deployment & EAS Build)
+## 📦 Triển khai APK (EAS Build)
 
-Đề án khuyến khích deploy trên hosting thật hoặc tạo gói cài đặt di động hoàn chỉnh (.APK) cho người dùng trải nghiệm. Hướng dẫn chi tiết cách build file APK thông qua Expo Application Services (EAS):
-
-### Cài đặt công cụ EAS CLI toàn cục
 ```bash
+# Cài đặt EAS CLI
 npm install -g eas-cli
-```
 
-### Đăng nhập tài khoản Expo cá nhân
-```bash
+# Đăng nhập Expo
 eas login
-```
 
-### Liên kết dự án với dự án Expo Cloud
-Đối với dự án hiện tại, dự án đã được định danh qua ID `541cb882-3bf3-42da-87ab-3656c960e887` trong tệp `app.json`. Chạy lệnh cấu hình:
-```bash
-eas project:init
-```
-
-### Thực hiện build file APK (Preview/Production build)
-Chạy lệnh sau đây để tự động build file APK hoàn chỉnh trên server đám mây của Expo:
-```bash
+# Build APK (profile preview)
 eas build --platform android --profile preview
 ```
 
-*   Sau khi quá trình build kết thúc thành công, EAS sẽ cung cấp một đường dẫn tải trực tiếp (hoặc mã QR tải xuống). Bạn có thể tải file `.apk` này về thiết bị Android để cài đặt trực tiếp mà không cần chạy Metro Bundler cục bộ.
+Sau khi build thành công, EAS cung cấp link tải `.apk` trực tiếp về thiết bị Android.
 
-Toàn bộ cấu hình build được quản lý trong file [eas.json](file:///d:/my-app/eas.json).
+> [!TIP]
+> Cấu hình build được quản lý trong file `eas.json`. Sử dụng profile `production` cho bản phát hành chính thức.
 
 ---
-*Chúc các bạn triển khai và nghiên cứu đề tài thành công! Mọi đóng góp vui lòng phản hồi qua phần Feedback của hệ thống khi chạy ứng dụng.*
+
+## 📝 Thông tin Đồ án
+
+<table>
+<tr>
+<td><strong>📌 Tên đề tài</strong></td>
+<td>Ứng dụng Hỗ trợ Du lịch và Tìm hiểu Văn hóa Khmer Nam Bộ</td>
+</tr>
+<tr>
+<td><strong>🎓 Sinh viên thực hiện</strong></td>
+<td><strong>Lâm Nhật Hào</strong> — MSSV: 110122071</td>
+</tr>
+<tr>
+<td><strong>🏫 Trường</strong></td>
+<td>Đại học Trà Vinh — Khoa Kỹ thuật và Công nghệ</td>
+</tr>
+<tr>
+<td><strong>📚 Ngành</strong></td>
+<td>Công nghệ Thông tin — Lớp DA22TTD</td>
+</tr>
+<tr>
+<td><strong>📅 Năm học</strong></td>
+<td>2025 – 2026</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+**⭐ Nếu dự án hữu ích, hãy cho một Star trên GitHub! ⭐**
+
+Made with ❤️ by **Lâm Nhật Hào** — Đại học Trà Vinh
+
+</div>
