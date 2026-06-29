@@ -397,7 +397,7 @@ Sau khi build thành công, EAS cung cấp link tải `.apk` trực tiếp về 
 <table>
 <tr>
 <td><strong>📌 Tên đề tài</strong></td>
-<td>Ứng dụng Hỗ trợ Du lịch và Tìm hiểu Văn hóa Khmer Nam Bộ</td>
+<td>Phát triển ứng dụng di động hỗ trợ nâng cao kiến thức về văn hoá của người Khmer Nam Bộ</td>
 </tr>
 <tr>
 <td><strong>🎓 Sinh viên thực hiện</strong></td>
